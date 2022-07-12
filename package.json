@@ -1,7 +1,7 @@
 {
-  "name": "@el3um4s/typescript-npm-package-starter",
-  "version": "0.0.11",
-  "description": "Typescript NPM Package Starter",
+  "name": "@el3um4s/run-vbs",
+  "version": "0.0.1",
+  "description": "Run .vbs script with Node",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -19,16 +19,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/el3um4s/typescript-npm-package-starter.git"
+    "url": "git+https://github.com/el3um4s/run-vbs.git"
   },
   "files": [
     "lib/**/*"
   ],
   "keywords": [
-    "typescript",
-    "npm",
-    "template",
-    "ts"
+    "nodejs", "windows", "node", "node-js", "vbscript", "vbs", "cscript", "vbscript-script", "cscripts"
   ],
   "author": "Samuele C. De Tomasi",
   "license": "MIT",
@@ -43,9 +40,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/el3um4s/typescript-npm-package-starter/issues"
+    "url": "https://github.com/el3um4s/run-vbs/issues"
   },
-  "homepage": "https://github.com/el3um4s/typescript-npm-package-starter#readme",
+  "homepage": "https://github.com/el3um4s/run-vbs#readme",
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@types/node": "^18.0.3",
