@@ -1,4 +1,4 @@
-import { runVbs, runVbsScriptFromFile } from "../index";
+import { runVbs, runVbsFile } from "../index";
 
 const vbs = `
 set args = Wscript.Arguments
@@ -29,7 +29,7 @@ end if
 
 describe("run vbs", () => {
   test("should return result - runVbsScriptFromFile", async () => {
-    const result = await runVbsScriptFromFile({
+    const result = await runVbsFile({
       vbs: "./src/__tests__/test.vbs",
     });
     expect(result).toBeTruthy();
@@ -45,14 +45,14 @@ describe("run vbs", () => {
   });
 
   test("should return result - runVbsScriptFromFile - NO OUTPUT", async () => {
-    const result = await runVbsScriptFromFile({
+    const result = await runVbsFile({
       vbs: "./src/__tests__/test_no_output.vbs",
     });
     expect(result).toBe("");
   });
 
   test("should return result - runVbsScriptFromFile - with Args: name", async () => {
-    const result = await runVbsScriptFromFile({
+    const result = await runVbsFile({
       vbs: "./src/__tests__/test.vbs",
       args: ["John"],
     });
@@ -61,7 +61,7 @@ describe("run vbs", () => {
   });
 
   test("should return result - runVbsScriptFromFile - with Args: name, surname", async () => {
-    const result = await runVbsScriptFromFile({
+    const result = await runVbsFile({
       vbs: "./src/__tests__/test.vbs",
       args: ["John", "Doe"],
     });
@@ -85,5 +85,23 @@ describe("run vbs", () => {
     });
     expect(result).toBeTruthy();
     expect(result).toBe("hello John Doe!");
+  });
+
+  test("should return result - test-lines - with Args: 5", async () => {
+    const result = await runVbsFile({
+      vbs: "./src/__tests__/test-lines.vbs",
+      args: ["a", "b", "c", "d", "e"],
+    });
+    expect(result).toBeTruthy();
+
+    const expected = `You gave 5 arguments.
+                      Argument 1 is: a
+                      Argument 2 is: b
+                      Argument 3 is: c
+                      Argument 4 is: d
+                      Argument 5 is: e`;
+    expect(result.replace(/(\r\n|\n|\r| |\t)/gm, "").trim()).toBe(
+      expected.replace(/(\r\n|\n|\r| |\t)/gm, "").trim()
+    );
   });
 });

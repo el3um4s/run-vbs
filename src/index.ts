@@ -4,7 +4,7 @@ import {
   deleteTempFile,
 } from "./functions/createTempVbsFile";
 
-const runVbsScriptFromFile = async (data: {
+const runVbsFile = async (data: {
   vbs: string;
   args?: string[];
 }): Promise<string> => {
@@ -31,4 +31,4 @@ const runVbs = async (data: {
   return result.trim();
 };
 
-export { runVbs, runVbsScriptFromFile };
+export { runVbs, runVbsFile };
