@@ -1,6 +1,6 @@
 {
   "name": "@el3um4s/run-vbs",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Run .vbs script with Node",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
