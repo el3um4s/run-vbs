@@ -23,7 +23,29 @@ interface Cmd {
   input?: string | Buffer;
 }
 
-const launchCommand = (cmd: Cmd): Promise<string> => {
+const launchCommand = (cmd: Cmd): Promise<any> => {
+  const { command, args, options } = cmd;
+
+  return new Promise((resolve) => {
+    const child = spawn(command, args, {
+      windowsHide: true,
+      shell: true,
+
+      ...options,
+    });
+
+    const result: string[] = [];
+    child.stdout.on("data", (data) => {
+      result.push(data);
+    });
+
+    child.on("close", () => {
+      return resolve(result.join(""));
+    });
+  });
+};
+
+const xlaunchCommand = (cmd: Cmd): Promise<string> => {
   const { command, args, options, input } = cmd;
 
   return new Promise((resolve, reject) => {
@@ -33,6 +55,8 @@ const launchCommand = (cmd: Cmd): Promise<string> => {
 
     const child = spawn(command, args, {
       windowsHide: true,
+      shell: true,
+
       ...options,
     });
 

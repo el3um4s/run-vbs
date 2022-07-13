@@ -1,5 +1,6 @@
-import { writeFile, unlink } from "fs/promises";
-var tmp = require("tmp");
+import { writeFile, unlink } from "node:fs/promises";
+
+import tmp = require("tmp");
 
 const writeScriptToTempFile = async (script: string): Promise<string> => {
   const tempName: string = tmp.tmpNameSync();

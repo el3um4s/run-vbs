@@ -1,4 +1,4 @@
-import path from "path";
+import path = require("node:path");
 import { arch } from "./arch";
 
 const archx64 = arch() === "x64";
