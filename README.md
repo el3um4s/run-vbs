@@ -79,12 +79,12 @@ console.log(result2); // hello John Doe!
 ```ts
 import { runVbsFile } from "@el3um4s/run-vbs";
 
-const result = await runVbs({
+const result = await runVbsFile({
   vbs: "./src/__tests__/test_no_output.vbs",
 });
 console.log(result); // hello world
 
-const result2 = await runVbs({
+const result2 = await runVbsFile({
   vbs: "./src/__tests__/test_no_output.vbs",
   args: ["John", "Doe"],
 });
