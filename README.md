@@ -29,6 +29,7 @@ console.log(fromFile); // hello world
 ### API: runVbs
 
 - `runVbs(data: { vbs: string; args?: string[]; }): Promise<string>` Run a VBS script and return the result.
+- `runVbsBuffer(data: { vbs: string; args?: string[]; }): Promise<string[]>` Run a VBS script and return the result as a buffer.
 
 ```ts
 import { runVbs } from "@el3um4s/run-vbs";
@@ -75,6 +76,7 @@ console.log(result2); // hello John Doe!
 ### API: runVbsFile
 
 - `runVbsFile(data: { vbs: string; args?: string[]; }): Promise<string>` Run a VBS script and return the result.
+- `runVbsFileBuffer(data: { vbs: string; args?: string[]; }): Promise<string[]>` Run a VBS script and return the result as a buffer.
 
 ```ts
 import { runVbsFile } from "@el3um4s/run-vbs";
