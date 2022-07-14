@@ -186,7 +186,7 @@ describe("run vbs buffer", () => {
                       Argument 3 is: c
                       Argument 4 is: d
                       Argument 5 is: e`;
-    const parsed = result[0].toString().trim() + result[1].toString().trim();
+    const parsed = result.map((x) => x.toString().trim()).join("");
     expect(parsed.replace(/(\r\n|\n|\r| |\t)/gm, "").trim()).toBe(
       expected.replace(/(\r\n|\n|\r| |\t)/gm, "").trim()
     );
