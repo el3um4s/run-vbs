@@ -8,6 +8,6 @@ const cscript64 = path.join(
   archx64 ? "SysWOW64" : "System32",
   "cscript.exe"
 );
-const cscript32 = path.join(sysroot ? sysroot : "", "System32/cscript.exe");
+const cscript32 = path.join(sysroot ? sysroot : "", "System32", "cscript.exe");
 
 export const cscript = (): string => (archx64 ? cscript64 : cscript32);
